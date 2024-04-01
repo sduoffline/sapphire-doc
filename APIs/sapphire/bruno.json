@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "sapphire",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
