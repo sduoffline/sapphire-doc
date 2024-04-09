@@ -1,13 +1,30 @@
 meta {
-  name: 获取数据集详情
+  name: 创建数据集
   type: http
-  seq: 2
+  seq: 1
 }
 
-get {
-  url: {{PREFIX}}/database/{{id}}
+post {
+  url: {{PREFIX}}/dataset/create
   body: json
   auth: none
+}
+
+body:json {
+  {
+    "name": "111",
+    "id": 111,
+    "creator": "111",
+    "time": "2024-01-23 12:12",
+    "type": "12",
+    "category": [
+      {
+        "name": "111",
+        "count": 111
+      }
+    ],
+    "total": 12
+  }
 }
 
 tests {

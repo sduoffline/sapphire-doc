@@ -1,30 +1,17 @@
 meta {
-  name: 创建数据集
+  name: 获取数据集详情
   type: http
-  seq: 1
+  seq: 2
 }
 
-post {
-  url: {{PREFIX}}/database/create
+get {
+  url: {{PREFIX}}/datasey/{{id}}
   body: json
   auth: none
 }
 
-body:json {
-  {
-    "name": "111",
-    "id": 111,
-    "creator": "111",
-    "time": "2024-01-23 12:12",
-    "type": "12",
-    "category": [
-      {
-        "name": "111",
-        "count": 111
-      }
-    ],
-    "total": 12
-  }
+vars:pre-request {
+  id: 111
 }
 
 tests {

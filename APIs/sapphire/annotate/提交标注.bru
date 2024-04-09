@@ -1,0 +1,33 @@
+meta {
+  name: 提交标注
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{PREFIX}}/annotate/{{id}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 1111,
+    "points": [
+      {
+        "x": 111.1,
+        "y": 222.2,
+        "type": 1
+      },
+      {
+        "x": 111.1,
+        "y": 222.2,
+        "type": 1
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  id: 111
+}

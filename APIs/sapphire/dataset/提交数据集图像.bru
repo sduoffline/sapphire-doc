@@ -1,0 +1,21 @@
+meta {
+  name: 提交数据集图像
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{PREFIX}}/dataset/add
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "dataset": 111,
+    "images": [
+      "http://111",
+      "http://222"
+    ]
+  }
+}

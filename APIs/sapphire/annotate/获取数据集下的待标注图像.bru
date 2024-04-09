@@ -1,0 +1,38 @@
+meta {
+  name: 获取数据集下的待标注图像
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PREFIX}}/annonate/{{set_id}}?size=1
+  body: none
+  auth: none
+}
+
+query {
+  size: 1
+}
+
+vars:pre-request {
+  set_id: 111
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": [
+      {
+        "id": 1111,
+        "status": "111",
+        "url": "http://xxx"
+      },
+      {
+        "id": 2222,
+        "status": "222",
+        "url": "http://xxx"
+      }      
+    ]
+  }
+}
