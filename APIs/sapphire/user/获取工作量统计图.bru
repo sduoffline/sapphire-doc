@@ -1,0 +1,24 @@
+meta {
+  name: 获取工作量统计图
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{PREFIX}}/user/statistic/workload
+  body: json
+  auth: none
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": [
+        {
+          "date": "2024-04-12",
+          "total": 64
+        }
+    ]
+  }
+}

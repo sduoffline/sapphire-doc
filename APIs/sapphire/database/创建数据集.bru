@@ -1,0 +1,49 @@
+meta {
+  name: 创建数据集
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{PREFIX}}/database/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "111",
+    "id": 111,
+    "creator": "111",
+    "time": "2024-01-23 12:12",
+    "type": "12",
+    "category": [
+      {
+        "name": "111",
+        "count": 111
+      }
+    ],
+    "total": 12
+  }
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": {
+      "name": "111",
+      "id": 111,
+      "creator": "111",
+      "time": "2024-01-23 12:12",
+      "type": "12",
+      "category": [
+          {
+            "name": "111",
+            "count": 111
+          }
+        ],
+      "total": 12
+    }
+  }
+}

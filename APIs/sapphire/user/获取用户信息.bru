@@ -1,0 +1,25 @@
+meta {
+  name: 获取用户信息
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{PREFIX}}/user
+  body: json
+  auth: none
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": {
+      "name": "11",
+      "score": 111,
+      "email": "111",
+      "uid": 111,
+      "avatar": "https://aaqa"
+    }
+  }
+}
