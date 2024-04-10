@@ -1,0 +1,36 @@
+meta {
+  name: 用户登录
+  type: http
+  seq: 5
+}
+
+post {
+  url: /user/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "11",
+    "pwd": "111"
+  }
+  
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": {
+      "info": {
+        "username": "11",
+        "score": 111,
+        "email": "111",
+        "uid": 111,
+        "avatar": "https://aaqa"
+      },
+      "token": "111"
+    }
+  }
+}

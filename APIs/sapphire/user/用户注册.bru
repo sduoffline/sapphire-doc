@@ -1,0 +1,38 @@
+meta {
+  name: 用户注册
+  type: http
+  seq: 4
+}
+
+post {
+  url: /user/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "11",
+    "pwd": "111",
+    "email": "111",
+    "avatar": "https://aaqa"
+  }
+  
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": {
+      "info": {
+        "username": "11",
+        "score": 111,
+        "email": "111",
+        "uid": 111,
+        "avatar": "https://aaqa"
+      },
+      "token": "111"
+    }
+  }
+}
