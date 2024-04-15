@@ -5,15 +5,15 @@ meta {
 }
 
 post {
-  url: /user/login
+  url: {{PREFIX}}/user/login
   body: json
   auth: none
 }
 
 body:json {
   {
-    "username": "11",
-    "pwd": "111"
+    "name": "11",
+    "passwd": "111"
   }
   
 }

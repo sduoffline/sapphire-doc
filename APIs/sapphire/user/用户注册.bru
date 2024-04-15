@@ -5,19 +5,29 @@ meta {
 }
 
 post {
-  url: /user/register
+  url: {{PREFIX}}/user/register
   body: json
   auth: none
 }
 
+headers {
+  ~Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJ0b29sdHQiOiJodHRwczovL3Rvb2x0dC5jb20ifV0sImlhdCI6MTcxMzA3NDMxNiwiZXhwIjoxNzEzMTEwMzk5LCJhdWQiOiIiLCJpc3MiOiJTaGlub2hhcmEiLCJzdWIiOiIifQ.f4kLATFhDkeNHRgEck5tMGb_AsynwXBxnQQypcq12r4
+}
+
 body:json {
   {
-    "username": "11",
-    "pwd": "111",
+    "name": "112",
+    "passwd": "111",
     "email": "111",
     "avatar": "https://aaqa"
   }
-  
+}
+
+body:form-urlencoded {
+  name: 11
+  passwd: 111
+  email: 1111
+  avatar: https://aaqa
 }
 
 tests {
