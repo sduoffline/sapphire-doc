@@ -1,0 +1,15 @@
+meta {
+  name: upload
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{PREFIX}}/test/upload
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  file: @file(/home/cooper/Pictures/avatar.png)
+}
