@@ -1,0 +1,38 @@
+meta {
+  name: 获取积分统计图
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PREFIX}}/user/statistic/credit
+  body: json
+  auth: none
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": [
+        {
+          "date": "2024-04-12",
+          "total": 64,
+          "detail": [
+            {
+              "status": "aa",
+              "dataset": "11",
+              "credit": 12,
+              "time": "2022"
+            },
+                      {
+              "status": "aa",
+              "dataset": "11",
+              "credit": 12,
+              "time": "2022"
+            }
+          ]
+        }
+    ]
+  }
+}

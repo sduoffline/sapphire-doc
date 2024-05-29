@@ -1,0 +1,19 @@
+meta {
+  name: changeRole
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{PREFIX}}/test/changeRole?userId=9
+  body: formUrlEncoded
+  auth: none
+}
+
+query {
+  userId: 9
+}
+
+body:form-urlencoded {
+  role: 0
+}

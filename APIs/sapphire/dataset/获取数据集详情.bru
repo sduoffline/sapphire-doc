@@ -1,0 +1,36 @@
+meta {
+  name: 获取数据集详情
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{PREFIX}}/datasey/{{id}}
+  body: json
+  auth: none
+}
+
+vars:pre-request {
+  id: 111
+}
+
+tests {
+  {
+    "code": 200,
+    "msg": "111",
+    "data": {
+      "name": "111",
+      "id": 111,
+      "creator": "111",
+      "time": "2024-01-23 12:12",
+      "type": "12",
+      "category": [
+          {
+            "name": "111",
+            "count": 111
+          }
+        ],
+      "total": 12
+    }
+  }
+}
