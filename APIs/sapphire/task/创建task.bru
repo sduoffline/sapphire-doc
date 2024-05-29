@@ -1,0 +1,16 @@
+meta {
+  name: 创建task
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{PREFIX}}/task/create
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  img_url: test
+  onnx_id: 2
+}

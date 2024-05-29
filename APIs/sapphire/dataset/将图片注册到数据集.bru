@@ -1,0 +1,16 @@
+meta {
+  name: 将图片注册到数据集
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{PREFIX}}/dataset/register
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  img_url: xxx
+  dataset_id: 1
+}

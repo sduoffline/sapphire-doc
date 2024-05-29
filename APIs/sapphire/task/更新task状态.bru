@@ -1,0 +1,16 @@
+meta {
+  name: 更新task状态
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{PREFIX}}/task/update
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  task_id: 1
+  status: -1
+}

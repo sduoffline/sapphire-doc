@@ -6,25 +6,15 @@ meta {
 
 post {
   url: {{PREFIX}}/dataset/create
-  body: json
+  body: multipartForm
   auth: none
 }
 
-body:json {
-  {
-    "name": "111",
-    "id": 111,
-    "creator": "111",
-    "time": "2024-01-23 12:12",
-    "type": "12",
-    "category": [
-      {
-        "name": "111",
-        "count": 111
-      }
-    ],
-    "total": 12
-  }
+body:multipart-form {
+  name: test
+  creator_id: 1
+  type_id: 2
+  description: 除开那三个都是可选参数
 }
 
 tests {

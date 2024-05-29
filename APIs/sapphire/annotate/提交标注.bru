@@ -5,29 +5,13 @@ meta {
 }
 
 post {
-  url: {{PREFIX}}/annotate/{{id}}
-  body: json
+  url: {{PREFIX}}/annotation/make
+  body: formUrlEncoded
   auth: none
 }
 
-body:json {
-  {
-    "id": 1111,
-    "points": [
-      {
-        "x": 111.1,
-        "y": 222.2,
-        "type": 1
-      },
-      {
-        "x": 111.1,
-        "y": 222.2,
-        "type": 1
-      }
-    ]
-  }
-}
-
-vars:pre-request {
-  id: 111
+body:form-urlencoded {
+  content: {"points":[{"x":111.1,"y":222.2,"type":1},{"x":111.1,"y":222.2,"type":1}]}
+  dataset_id: 1
+  marker_id: 6
 }

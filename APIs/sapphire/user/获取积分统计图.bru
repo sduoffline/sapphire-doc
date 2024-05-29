@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{PREFIX}}/user/statistic/credit
+  url: {{PREFIX}}/user/statistic/credit?userId=6
   body: json
   auth: none
+}
+
+query {
+  userId: 6
 }
 
 tests {

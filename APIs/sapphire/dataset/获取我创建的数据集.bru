@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{PREFIX}}/dataset/list
-  body: json
+  url: {{PREFIX}}/dataset/my-list?creator_id=1
+  body: formUrlEncoded
   auth: none
+}
+
+query {
+  creator_id: 1
 }
 
 tests {
