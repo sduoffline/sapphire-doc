@@ -1,0 +1,639 @@
+{
+  "info": {
+    "name": "sapphire",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "annotate",
+      "item": [
+        {
+          "name": "提交标注",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/annotation/make",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "content",
+                  "value": "{\"points\":[{\"x\":111.1,\"y\":222.2,\"type\":1},{\"x\":111.1,\"y\":222.2,\"type\":1}]}",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "dataset_id",
+                  "value": "1",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "marker_id",
+                  "value": "6",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "获取数据集下的待标注图像",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": [\r",
+                  "    {\r",
+                  "      \"id\": 1111,\r",
+                  "      \"status\": \"111\",\r",
+                  "      \"url\": \"http://xxx\"\r",
+                  "    },\r",
+                  "    {\r",
+                  "      \"id\": 2222,\r",
+                  "      \"status\": \"222\",\r",
+                  "      \"url\": \"http://xxx\"\r",
+                  "    }      \r",
+                  "  ]\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/annonate/{{set_id}}?size=1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dataset",
+      "item": [
+        {
+          "name": "创建数据集",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": {\r",
+                  "    \"name\": \"111\",\r",
+                  "    \"id\": 111,\r",
+                  "    \"creator\": \"111\",\r",
+                  "    \"time\": \"2024-01-23 12:12\",\r",
+                  "    \"type\": \"12\",\r",
+                  "    \"category\": [\r",
+                  "        {\r",
+                  "          \"name\": \"111\",\r",
+                  "          \"count\": 111\r",
+                  "        }\r",
+                  "      ],\r",
+                  "    \"total\": 12\r",
+                  "  }\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/dataset/create",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "test",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "creator_id",
+                  "value": "1",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "type_id",
+                  "value": "2",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "description",
+                  "value": "除开那三个都是可选参数",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "将图片注册到数据集",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/dataset/register",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "img_url",
+                  "value": "xxx",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "dataset_id",
+                  "value": "1",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "提交数据集图像",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/dataset/add",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"dataset\": 111,\r\n  \"images\": [\r\n    \"http://111\",\r\n    \"http://222\"\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "获取我创建的数据集",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": [\r",
+                  "    {\r",
+                  "      \"name\": \"111\",\r",
+                  "      \"id\": 111,\r",
+                  "      \"creator\": \"111\",\r",
+                  "      \"time\": \"2024-01-23 12:12\",\r",
+                  "      \"type\": \"12\",\r",
+                  "      \"category\": [\r",
+                  "          {\r",
+                  "            \"name\": \"111\",\r",
+                  "            \"count\": 111\r",
+                  "          }\r",
+                  "        ],\r",
+                  "      \"total\": 12\r",
+                  "    }\r",
+                  "  ]\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/dataset/my-list?creator_id=1",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          }
+        },
+        {
+          "name": "获取数据集详情",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": {\r",
+                  "    \"name\": \"111\",\r",
+                  "    \"id\": 111,\r",
+                  "    \"creator\": \"111\",\r",
+                  "    \"time\": \"2024-01-23 12:12\",\r",
+                  "    \"type\": \"12\",\r",
+                  "    \"category\": [\r",
+                  "        {\r",
+                  "          \"name\": \"111\",\r",
+                  "          \"count\": 111\r",
+                  "        }\r",
+                  "      ],\r",
+                  "    \"total\": 12\r",
+                  "  }\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/dataset/{{id}}",
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "task",
+      "item": [
+        {
+          "name": "创建task",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/task/create",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "img_url",
+                  "value": "test",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "onnx_id",
+                  "value": "2",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "更新task状态",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/task/update",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "task_id",
+                  "value": "1",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "-1",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "获取task列表",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/task/list"
+          }
+        },
+        {
+          "name": "获取下一个可以做的task",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/task/next"
+          }
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "item": [
+        {
+          "name": "changeRole",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/test/changeRole?userId=9",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "role",
+                  "value": "0",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "helloworld",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/test/hw"
+          }
+        },
+        {
+          "name": "upload",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/test/upload",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "value": [
+                    "/home/cooper/Pictures/avatar.png"
+                  ],
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "用户注册",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": {\r",
+                  "    \"info\": {\r",
+                  "      \"username\": \"11\",\r",
+                  "      \"score\": 111,\r",
+                  "      \"email\": \"111\",\r",
+                  "      \"uid\": 111,\r",
+                  "      \"avatar\": \"https://aaqa\"\r",
+                  "    },\r",
+                  "    \"token\": \"111\"\r",
+                  "  }\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJ0b29sdHQiOiJodHRwczovL3Rvb2x0dC5jb20ifV0sImlhdCI6MTcxMzA3NDMxNiwiZXhwIjoxNzEzMTEwMzk5LCJhdWQiOiIiLCJpc3MiOiJTaGlub2hhcmEiLCJzdWIiOiIifQ.f4kLATFhDkeNHRgEck5tMGb_AsynwXBxnQQypcq12r4",
+                "disabled": true,
+                "type": "default"
+              }
+            ],
+            "url": "{{PREFIX}}/user/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"kjk\",\r\n  \"passwd\": \"kk\",\r\n  \"email\": \"mail\",\r\n  \"avatar\": \"https://aaqa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "用户登录",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": {\r",
+                  "    \"info\": {\r",
+                  "      \"username\": \"11\",\r",
+                  "      \"score\": 111,\r",
+                  "      \"email\": \"111\",\r",
+                  "      \"uid\": 111,\r",
+                  "      \"avatar\": \"https://aaqa\"\r",
+                  "    },\r",
+                  "    \"token\": \"111\"\r",
+                  "  }\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{PREFIX}}/user/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"john\",\r\n  \"passwd\": \"dearjohn\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "获取工作量统计图",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": [\r",
+                  "      {\r",
+                  "        \"date\": \"2024-04-12\",\r",
+                  "        \"total\": 64\r",
+                  "      }\r",
+                  "  ]\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/user/statistic/workload",
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "获取用户信息",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": {\r",
+                  "    \"username\": \"11\",\r",
+                  "    \"score\": 111,\r",
+                  "    \"email\": \"111\",\r",
+                  "    \"uid\": 111,\r",
+                  "    \"avatar\": \"https://aaqa\"\r",
+                  "  }\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/user/profile",
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "获取积分统计图",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "{\r",
+                  "  \"code\": 200,\r",
+                  "  \"msg\": \"111\",\r",
+                  "  \"data\": [\r",
+                  "      {\r",
+                  "        \"date\": \"2024-04-12\",\r",
+                  "        \"total\": 64,\r",
+                  "        \"detail\": [\r",
+                  "          {\r",
+                  "            \"status\": \"aa\",\r",
+                  "            \"dataset\": \"11\",\r",
+                  "            \"credit\": 12,\r",
+                  "            \"time\": \"2022\"\r",
+                  "          },\r",
+                  "                    {\r",
+                  "            \"status\": \"aa\",\r",
+                  "            \"dataset\": \"11\",\r",
+                  "            \"credit\": 12,\r",
+                  "            \"time\": \"2022\"\r",
+                  "          }\r",
+                  "        ]\r",
+                  "      }\r",
+                  "  ]\r",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{PREFIX}}/user/statistic/credit?userId=6",
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "bruno",
+      "event": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "PREFIX",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "set_id",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "id",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
